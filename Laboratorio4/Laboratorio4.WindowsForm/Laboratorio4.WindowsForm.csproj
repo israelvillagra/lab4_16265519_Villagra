@@ -52,6 +52,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFile.Designer.cs">
+      <DependentUpon>frmFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFileName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFileName.Designer.cs">
+      <DependentUpon>frmFileName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFilesInZonaDeTrabajo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFilesInZonaDeTrabajo.Designer.cs">
+      <DependentUpon>frmFilesInZonaDeTrabajo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +80,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFile.resx">
+      <DependentUpon>frmFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFileName.resx">
+      <DependentUpon>frmFileName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFilesInZonaDeTRabajo.resx">
+      <DependentUpon>frmFilesInZonaDeTrabajo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
