@@ -22,18 +22,33 @@ namespace Laboratorio4.WindowsForm
             _Nombre = p_NombreArchivo;
         }
 
+        public frmFile(ArchivoDeTextoPlano p_Archivo)
+        {
+            InitializeComponent();
+            this.Text = "Archivo : " + p_Archivo._Nombre;
+            _Nombre = p_Archivo._Nombre;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(rtbContenido.Text))
             {
-                ArchivoDeTextoPlano = new ArchivoDeTextoPlano(_Nombre, rtbContenido.Text);
-                this.Close();
+                if (ArchivoDeTextoPlano == null)
+                {
+                    ArchivoDeTextoPlano = new ArchivoDeTextoPlano(_Nombre, rtbContenido.Text);
+                    this.Close();
+                }
+                else
+                {
+                    ArchivoDeTextoPlano._Version = ArchivoDeTextoPlano._Version + 1;
+                    ArchivoDeTextoPlano._Contenido = rtbContenido.Text;
+                }
+                
             }
             else
             {
                 MessageBox.Show("El archivo debe tener un contenido");
             }
-            
         }
 
         private void button1_Click(object sender, EventArgs e)

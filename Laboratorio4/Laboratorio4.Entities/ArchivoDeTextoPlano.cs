@@ -9,9 +9,9 @@ namespace Laboratorio4.Entities
     public class ArchivoDeTextoPlano
     {
         public String _Nombre;
-        private int _Version;
-        private DateTime _FechaModificacion;
-        private String _Contenido;
+        public int _Version;
+        public DateTime _FechaModificacion;
+        public String _Contenido;
 
         public ArchivoDeTextoPlano(String p_Nombre, String p_Contenido)
         {
@@ -20,5 +20,6 @@ namespace Laboratorio4.Entities
             _Version = 1;
             _FechaModificacion = DateTime.Now;
         }
+
     }
 }

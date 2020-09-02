@@ -54,10 +54,11 @@ namespace Laboratorio4.Controller
             }
         }
 
-
         public ZonaDeTrabajo obtenerZonaDeTrabajo(ZonasDeTrabajoEnum p_ZonasDeTrabajoEnum)
         {
             return RespitorioLaboratorio._ListaZonasDeTrabajo.Where(x => x.NombreZonaDeTrabajo == p_ZonasDeTrabajoEnum).FirstOrDefault();
         }
+
+        public bool ActualizaArchivo()
     }
 }

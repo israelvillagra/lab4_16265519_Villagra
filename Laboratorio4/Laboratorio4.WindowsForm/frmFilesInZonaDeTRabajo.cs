@@ -25,19 +25,41 @@ namespace Laboratorio4.WindowsForm
 
         private void CargaListaArchivos(ZonasDeTrabajoEnum p_ZonasDeTrabajoEnum)
         {
+            listView1.Items.Clear();
             zonaDeTrabajo = frmPrincipal.repositorioController.obtenerZonaDeTrabajo(ZonasDeTrabajoEnum.Workspace);
             if (zonaDeTrabajo._ListaDeArchivos != null && zonaDeTrabajo._ListaDeArchivos.Count > 0)
             {
-
+               
+                foreach (ArchivoDeTextoPlano item in zonaDeTrabajo._ListaDeArchivos)
+                {
+                    ListViewItem itemTXT = new ListViewItem(item._Nombre);
+                    itemTXT.SubItems.Add(item._FechaModificacion.ToString());
+                    listView1.Items.Add(itemTXT);
+                }
+                btnActualiza.Visible = true;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            new frmFileName(zonaDeTrabajo).ShowDialog();
+            frmFileName fileNew = new frmFileName(zonaDeTrabajo);
+            fileNew.ShowDialog();
             this.Visible = true;
             CargaListaArchivos(ZonasDeTrabajoEnumerador);
+        }
+
+
+        private void btnActualiza_Click(object sender, EventArgs e)
+        {
+            if (listView1.CheckedItems.Count > 0)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar al menos un archivo");
+            }
         }
     }
 }

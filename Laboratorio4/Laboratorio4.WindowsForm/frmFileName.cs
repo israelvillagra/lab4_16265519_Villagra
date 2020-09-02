@@ -13,6 +13,7 @@ namespace Laboratorio4.WindowsForm
 {
     public partial class frmFileName : Form
     {
+        public ArchivoDeTextoPlano archivo;
         private ZonaDeTrabajo _zonaDeTrabajo;
         private frmFile frmFile;
         public frmFileName(ZonaDeTrabajo p_ZonaDeTrabajo)
@@ -31,7 +32,6 @@ namespace Laboratorio4.WindowsForm
                     this.Visible = false;
                     frmFile = new frmFile(txtNombreArchivo.Text);
                     frmFile.ShowDialog();
-                    this.Close();
                 }
                 else
                 {
@@ -43,7 +43,10 @@ namespace Laboratorio4.WindowsForm
                 this.Visible = false;
                 frmFile = new frmFile(txtNombreArchivo.Text);
                 frmFile.ShowDialog();
+            }
 
+            if (frmFile != null)
+            {
                 if (frmFile.ArchivoDeTextoPlano != null)
                 {
                     if (_zonaDeTrabajo._ListaDeArchivos == null)
@@ -53,6 +56,8 @@ namespace Laboratorio4.WindowsForm
 
                 this.Close();
             }
+            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
