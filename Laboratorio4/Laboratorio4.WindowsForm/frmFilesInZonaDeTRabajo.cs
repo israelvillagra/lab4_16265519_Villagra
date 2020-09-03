@@ -1,4 +1,5 @@
-﻿using Laboratorio4.Entities;
+﻿using Laboratorio4.Controller;
+using Laboratorio4.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,7 @@ namespace Laboratorio4.WindowsForm
         private void CargaListaArchivos(ZonasDeTrabajoEnum p_ZonasDeTrabajoEnum)
         {
             listView1.Items.Clear();
-            zonaDeTrabajo = frmPrincipal.repositorioController.obtenerZonaDeTrabajo(ZonasDeTrabajoEnum.Workspace);
+            zonaDeTrabajo = Form1.repositorioController.obtenerZonaDeTrabajo(ZonasDeTrabajoEnum.Workspace);
             if (zonaDeTrabajo._ListaDeArchivos != null && zonaDeTrabajo._ListaDeArchivos.Count > 0)
             {
                
@@ -54,7 +55,20 @@ namespace Laboratorio4.WindowsForm
         {
             if (listView1.CheckedItems.Count > 0)
             {
+                List<ArchivoDeTextoPlano> listadoArchivo = new List<ArchivoDeTextoPlano>();
 
+                foreach (ListViewItem itemList in listView1.CheckedItems)
+                {
+                   var archivo=  zonaDeTrabajo._ListaDeArchivos.FirstOrDefault(x => x._Nombre == itemList.Text);
+                    if (archivo != null)
+                        listadoArchivo.Add(archivo);
+                }
+
+                int resultado = RepositorioController.AddFileToIndex(listadoArchivo);
+                if(resultado>0)
+                    MessageBox.Show("Se han copiados los archivos de manera exitosa");
+                else
+                    MessageBox.Show("Ha ocurrido un problema al copiar el archivo");
             }
             else
             {

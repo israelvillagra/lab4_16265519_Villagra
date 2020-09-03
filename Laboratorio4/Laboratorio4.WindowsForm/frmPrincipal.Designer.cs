@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnIndex = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -45,14 +46,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnIndex
             // 
-            this.button2.Location = new System.Drawing.Point(40, 82);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(209, 45);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Archivos en Workspace";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnIndex.Location = new System.Drawing.Point(40, 82);
+            this.btnIndex.Name = "btnIndex";
+            this.btnIndex.Size = new System.Drawing.Size(209, 45);
+            this.btnIndex.TabIndex = 1;
+            this.btnIndex.Text = "Archivos en Workspace";
+            this.btnIndex.UseVisualStyleBackColor = true;
+            this.btnIndex.Click += new System.EventHandler(this.btnIndex_Click);
             // 
             // button3
             // 
@@ -74,7 +76,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(40, 334);
+            this.button5.Location = new System.Drawing.Point(40, 385);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(209, 29);
             this.button5.TabIndex = 5;
@@ -82,16 +84,27 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(40, 334);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(209, 45);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Exportar Repository";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 375);
+            this.ClientSize = new System.Drawing.Size(296, 426);
             this.ControlBox = false;
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnIndex);
             this.Controls.Add(this.button1);
             this.Name = "frmPrincipal";
             this.ShowIcon = false;
@@ -104,9 +117,10 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnIndex;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button2;
     }
 }

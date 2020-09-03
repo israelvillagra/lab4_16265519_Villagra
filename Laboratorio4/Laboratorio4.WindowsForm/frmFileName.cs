@@ -1,4 +1,5 @@
-﻿using Laboratorio4.Entities;
+﻿using Laboratorio4.Controller;
+using Laboratorio4.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,9 +50,7 @@ namespace Laboratorio4.WindowsForm
             {
                 if (frmFile.ArchivoDeTextoPlano != null)
                 {
-                    if (_zonaDeTrabajo._ListaDeArchivos == null)
-                        _zonaDeTrabajo._ListaDeArchivos = new List<ArchivoDeTextoPlano>();
-                    _zonaDeTrabajo._ListaDeArchivos.Add(frmFile.ArchivoDeTextoPlano);
+                    RepositorioController.AgregarArchivoZonaDeTrabajo(_zonaDeTrabajo.NombreZonaDeTrabajo, frmFile.ArchivoDeTextoPlano);
                 }
 
                 this.Close();

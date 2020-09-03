@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laboratorio4.Entities
 {
+    [Serializable]
     public class Commit
     {
         public String _Autor;
@@ -13,5 +14,7 @@ namespace Laboratorio4.Entities
         public List<ArchivoDeTextoPlano> _ListaDeArchivos;
         public DateTime _Fecha;
         public String _Mensaje;
+
+        public Commit() { }
     }
 }

@@ -43,7 +43,6 @@ namespace Laboratorio4.WindowsForm
                     ArchivoDeTextoPlano._Version = ArchivoDeTextoPlano._Version + 1;
                     ArchivoDeTextoPlano._Contenido = rtbContenido.Text;
                 }
-                
             }
             else
             {

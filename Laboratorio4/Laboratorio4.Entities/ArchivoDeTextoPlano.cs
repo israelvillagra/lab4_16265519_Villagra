@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace Laboratorio4.Entities
 {
+    [Serializable]
     public class ArchivoDeTextoPlano
     {
         public String _Nombre;
         public int _Version;
         public DateTime _FechaModificacion;
         public String _Contenido;
+
+        public ArchivoDeTextoPlano()
+        { }
 
         public ArchivoDeTextoPlano(String p_Nombre, String p_Contenido)
         {
