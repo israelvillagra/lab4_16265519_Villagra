@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCommit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCommit.Designer.cs">
+      <DependentUpon>frmCommit.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     <Compile Include="frmIndexFiles.Designer.cs">
       <DependentUpon>frmIndexFiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLocalRepository.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLocalRepository.Designer.cs">
+      <DependentUpon>frmLocalRepository.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +98,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCommit.resx">
+      <DependentUpon>frmCommit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFile.resx">
       <DependentUpon>frmFile.cs</DependentUpon>
@@ -98,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndexFiles.resx">
       <DependentUpon>frmIndexFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLocalRepository.resx">
+      <DependentUpon>frmLocalRepository.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

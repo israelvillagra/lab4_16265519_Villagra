@@ -12,16 +12,11 @@ using static Laboratorio4.Entities.Utiles.EnumeradoresUtiles;
 
 namespace Laboratorio4.WindowsForm
 {
-    public partial class frmIndexFiles : Form
+    public partial class frmLocalRepository : Form
     {
-        public frmIndexFiles()
-        {
-            InitializeComponent();
-        }
-
         ZonaDeTrabajo zonaDeTrabajo;
         ZonasDeTrabajoEnum ZonasDeTrabajoEnumerador;
-        public frmIndexFiles(ZonasDeTrabajoEnum p_ZonasDeTrabajoEnum)
+        public frmLocalRepository(ZonasDeTrabajoEnum p_ZonasDeTrabajoEnum)
         {
             InitializeComponent();
             CargaListaArchivos(p_ZonasDeTrabajoEnum);
@@ -34,37 +29,15 @@ namespace Laboratorio4.WindowsForm
             zonaDeTrabajo = Form1.repositorioController.obtenerZonaDeTrabajo(p_ZonasDeTrabajoEnum);
             if (zonaDeTrabajo._ListaDeArchivos != null && zonaDeTrabajo._ListaDeArchivos.Count > 0)
             {
+
                 foreach (ArchivoDeTextoPlano item in zonaDeTrabajo._ListaDeArchivos)
                 {
                     ListViewItem itemTXT = new ListViewItem(item._Nombre);
                     itemTXT.SubItems.Add(item._FechaModificacion.ToString());
                     listView1.Items.Add(itemTXT);
                 }
+                btnPushFiles.Visible = true;
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (listView1.Items.Count > 0)
-            {
-                this.Visible = false;
-                frmCommit comit = new frmCommit();
-                comit.ShowDialog();
-                if (!String.IsNullOrWhiteSpace(comit.textBox1.Text))
-                {
-                    int resultado = Form1.repositorioController.AddAllFilesToLocalRepository(comit.textBox1.Text);
-                    if (resultado > 0)
-                        MessageBox.Show("Se acaba de realizar el commit");
-                    else
-                        MessageBox.Show("Ha Ocurrido un problema al ejecutar la operación");
-
-                    CargaListaArchivos(ZonasDeTrabajoEnumerador);
-                }
-            }
-            else
-                MessageBox.Show("Debe tener al menos un archivo en Index");
-
-            this.Visible = true;
         }
     }
 }

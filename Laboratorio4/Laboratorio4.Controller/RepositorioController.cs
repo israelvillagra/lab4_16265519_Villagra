@@ -141,5 +141,70 @@ namespace Laboratorio4.Controller
             }
             return resultado;
         }
+
+        public int AddAllFilesToLocalRepository(String p_Mensaje)
+        {
+            int resultado = 0;
+            ZonaDeTrabajo zonaDesde = RespitorioLaboratorio._ListaZonasDeTrabajo.Where(x => x.NombreZonaDeTrabajo == ZonasDeTrabajoEnum.Index).FirstOrDefault();
+            ZonaDeTrabajo zonaHasta = RespitorioLaboratorio._ListaZonasDeTrabajo.Where(x => x.NombreZonaDeTrabajo == ZonasDeTrabajoEnum.LocalRepository).FirstOrDefault();
+
+            if (zonaHasta._ListaDeArchivos == null)
+                zonaHasta._ListaDeArchivos = new List<ArchivoDeTextoPlano>();
+
+            if (zonaHasta._ListaCommit == null)
+                zonaHasta._ListaCommit = new List<Commit>();
+
+            //Se instancia objeto commit
+            Commit commit = new Commit();
+            commit._Fecha = DateTime.Now;
+            commit._Mensaje = p_Mensaje;
+            commit._Copiado = false;
+            commit._ListaDeArchivos = new List<ArchivoDeTextoPlano>();
+
+            foreach (ArchivoDeTextoPlano p in zonaDesde._ListaDeArchivos)
+            {
+                var archivo = zonaHasta._ListaDeArchivos.FirstOrDefault(x => x._Nombre == p._Nombre);
+                if (archivo != null && !String.IsNullOrEmpty(archivo._Contenido))
+                    archivo = p;
+                else
+                    zonaHasta._ListaDeArchivos.Add(p);
+
+                commit._ListaDeArchivos.Add(p);
+
+                resultado += 1;
+            }
+
+            zonaDesde._ListaDeArchivos.Clear();
+            zonaHasta._ListaCommit.Add(commit);
+
+            return resultado;
+        }
+
+        public int AddAllFilesToRemoteRepository()
+        {
+            ZonaDeTrabajo zonaDesde = RespitorioLaboratorio._ListaZonasDeTrabajo.Where(x => x.NombreZonaDeTrabajo == ZonasDeTrabajoEnum.LocalRepository).FirstOrDefault();
+            ZonaDeTrabajo zonaHasta = RespitorioLaboratorio._ListaZonasDeTrabajo.Where(x => x.NombreZonaDeTrabajo == ZonasDeTrabajoEnum.RemoteRepository).FirstOrDefault();
+            if (zonaHasta._ListaDeArchivos == null)
+            {
+                zonaHasta._ListaDeArchivos = new List<ArchivoDeTextoPlano>();
+            }
+
+            int respuesta = 0;
+            if (zonaDesde._ListaCommit != null)
+            {
+                foreach (Commit p in zonaDesde._ListaCommit)
+                {
+                    if (!p._Copiado)
+                    {
+                        foreach (ArchivoDeTextoPlano p1 in p._ListaDeArchivos)
+                        {
+                            zonaHasta._ListaDeArchivos.Add(p1);
+                            respuesta += 1;
+                        }
+                    }
+                }
+            }
+            return respuesta;
+        }
     }
 }

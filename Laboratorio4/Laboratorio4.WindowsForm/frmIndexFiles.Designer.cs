@@ -28,24 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
             this.Nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // listView1
+            // button1
             // 
-            this.listView1.CheckBoxes = true;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Nombre,
-            this.columnHeader2});
-            this.listView1.Location = new System.Drawing.Point(12, 12);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(760, 365);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.button1.Location = new System.Drawing.Point(518, 401);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(254, 39);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "File From Index to LocalRepository";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Nombre
             // 
@@ -57,15 +54,17 @@
             this.columnHeader2.Text = "Fecha Creación";
             this.columnHeader2.Width = 200;
             // 
-            // button1
+            // listView1
             // 
-            this.button1.Location = new System.Drawing.Point(518, 401);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(254, 39);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "File From Index to LocalRepository";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Nombre,
+            this.columnHeader2});
+            this.listView1.Location = new System.Drawing.Point(12, 12);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(760, 365);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // frmIndexFiles
             // 
@@ -85,10 +84,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ColumnHeader Nombre;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView listView1;
     }
 }

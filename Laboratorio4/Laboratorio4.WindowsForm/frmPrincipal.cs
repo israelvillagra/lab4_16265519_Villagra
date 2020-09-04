@@ -61,5 +61,13 @@ namespace Laboratorio4.WindowsForm
                     MessageBox.Show("Ha ocurrido un problema al crear el archivo");
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            new frmLocalRepository(ZonasDeTrabajoEnum.LocalRepository).ShowDialog();
+            this.Visible = true;
+            //CargaListaArchivos
+        }
     }
 }
