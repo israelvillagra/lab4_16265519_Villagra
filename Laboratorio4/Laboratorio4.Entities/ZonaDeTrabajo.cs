@@ -7,6 +7,9 @@ using static Laboratorio4.Entities.Utiles.EnumeradoresUtiles;
 
 namespace Laboratorio4.Entities
 {
+    /// <summary>
+    /// Objeto que contiene todo lo relacionado con las Zonas de Trabajo
+    /// </summary>
     [Serializable]
     public class ZonaDeTrabajo
     {

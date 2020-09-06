@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Laboratorio4.Entities
 {
+    /// <summary>
+    /// Se crea este objeto para ser desplegado en la lista, hereda de ArchivoDeTextoPlano
+    /// </summary>
     [Serializable]
     public class ArchivoDeTextoPlanoModel: ArchivoDeTextoPlano
     {

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Laboratorio4.Entities
 {
+    /// <summary>
+    /// Objeto que contiene todos los objetos para ejecutar el programa
+    /// </summary>
     [Serializable]
     public class Repositorio
     {

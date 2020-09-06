@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Laboratorio4.Entities
 {
+    /// <summary>
+    /// Objeto que contiene la lista de archivos involucrados en el commit, con más información
+    /// </summary>
     [Serializable]
     public class Commit
     {
