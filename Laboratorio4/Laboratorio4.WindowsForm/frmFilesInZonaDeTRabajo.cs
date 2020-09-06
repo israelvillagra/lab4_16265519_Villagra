@@ -60,13 +60,13 @@ namespace Laboratorio4.WindowsForm
 
                 foreach (ListViewItem itemList in listView1.CheckedItems)
                 {
-                   var archivo=  zonaDeTrabajo._ListaDeArchivos.FirstOrDefault(x => x._Nombre == itemList.Text);
+                    var archivo = zonaDeTrabajo._ListaDeArchivos.FirstOrDefault(x => x._Nombre == itemList.Text);
                     if (archivo != null)
                         listadoArchivo.Add(archivo);
                 }
 
                 int resultado = RepositorioController.AddFileToIndex(listadoArchivo);
-                if(resultado>0)
+                if (resultado > 0)
                     MessageBox.Show("Se han copiados los archivos de manera exitosa");
                 else
                     MessageBox.Show("Ha ocurrido un problema al copiar el archivo");

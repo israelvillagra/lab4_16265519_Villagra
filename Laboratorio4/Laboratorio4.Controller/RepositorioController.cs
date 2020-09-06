@@ -1,4 +1,5 @@
-﻿using Laboratorio4.Entities;
+﻿using Laboratorio4.Controller.Utils;
+using Laboratorio4.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +11,7 @@ using static Laboratorio4.Entities.Utiles.EnumeradoresUtiles;
 
 namespace Laboratorio4.Controller
 {
-    
+
 
     public class RepositorioController
     {
@@ -21,7 +22,7 @@ namespace Laboratorio4.Controller
             try
             {
                 XmlSerializer xs = new XmlSerializer(typeof(Repositorio));
-                string fileName = p_PathFile + "\\"+ RespitorioLaboratorio._Nombre + ".xml";
+                string fileName = p_PathFile + "\\" + RespitorioLaboratorio._Nombre + ".xml";
                 TextWriter txtWriter = new StreamWriter(fileName);
                 xs.Serialize(txtWriter, RespitorioLaboratorio);
                 txtWriter.Close();
@@ -45,7 +46,7 @@ namespace Laboratorio4.Controller
                     var serializer = new XmlSerializer(typeof(Repositorio));
                     RespitorioLaboratorio = serializer.Deserialize(stream) as Repositorio;
                 }
-                p_Mensaje = "Se ha restaurado el repositorio "+ RespitorioLaboratorio._Nombre;
+                p_Mensaje = "Se ha restaurado el repositorio " + RespitorioLaboratorio._Nombre;
                 return true;
             }
             catch (Exception ex)
@@ -104,7 +105,7 @@ namespace Laboratorio4.Controller
 
         public static bool AgregarArchivoZonaDeTrabajo(ZonasDeTrabajoEnum p_ZonasDeTrabajoEnum, ArchivoDeTextoPlano p_Archivo)
         {
-            ZonaDeTrabajo zona =  RespitorioLaboratorio._ListaZonasDeTrabajo.Where(x => x.NombreZonaDeTrabajo == p_ZonasDeTrabajoEnum).FirstOrDefault();
+            ZonaDeTrabajo zona = RespitorioLaboratorio._ListaZonasDeTrabajo.Where(x => x.NombreZonaDeTrabajo == p_ZonasDeTrabajoEnum).FirstOrDefault();
             if (zona._ListaDeArchivos == null)
                 zona._ListaDeArchivos = new List<ArchivoDeTextoPlano>();
 
@@ -141,7 +142,7 @@ namespace Laboratorio4.Controller
             return resultado;
         }
 
-        public int AddAllFilesToLocalRepository(String p_Mensaje)
+        public int AddAllFilesToLocalRepository(String p_Mensaje, List<ArchivoDeTextoPlano> p_ListaArchivos = null)
         {
             int resultado = 0;
             ZonaDeTrabajo zonaDesde = RespitorioLaboratorio._ListaZonasDeTrabajo.Where(x => x.NombreZonaDeTrabajo == ZonasDeTrabajoEnum.Index).FirstOrDefault();
@@ -164,7 +165,10 @@ namespace Laboratorio4.Controller
             commit._Copiado = false;
             commit._ListaDeArchivos = new List<ArchivoDeTextoPlano>();
 
-            foreach (ArchivoDeTextoPlano p in zonaDesde._ListaDeArchivos)
+            if (p_ListaArchivos == null)
+                p_ListaArchivos = zonaDesde._ListaDeArchivos;
+
+            foreach (ArchivoDeTextoPlano p in p_ListaArchivos)
             {
                 var archivo = zonaHasta._ListaDeArchivos.FirstOrDefault(x => x._Nombre == p._Nombre);
                 if (archivo != null && !String.IsNullOrEmpty(archivo._Contenido))
@@ -177,7 +181,7 @@ namespace Laboratorio4.Controller
                 resultado += 1;
             }
 
-            zonaDesde._ListaDeArchivos.Clear();
+            //zonaDesde._ListaDeArchivos.Clear();
             zonaHasta._ListaCommit.Add(commit);
 
             return resultado;
@@ -217,6 +221,24 @@ namespace Laboratorio4.Controller
                 }
             }
             return respuesta;
+        }
+
+        public int AddAllFilesToWorkSpave()
+        {
+            int resultado = 0;
+            ZonaDeTrabajo zonaDesde = RespitorioLaboratorio._ListaZonasDeTrabajo.Where(x => x.NombreZonaDeTrabajo == ZonasDeTrabajoEnum.RemoteRepository).FirstOrDefault();
+            ZonaDeTrabajo zonaHasta = RespitorioLaboratorio._ListaZonasDeTrabajo.Where(x => x.NombreZonaDeTrabajo == ZonasDeTrabajoEnum.Workspace).FirstOrDefault();
+
+            foreach (ArchivoDeTextoPlano p in zonaDesde._ListaDeArchivos)
+            {
+                var archivo = zonaHasta._ListaDeArchivos.FirstOrDefault(x => x._Nombre.Equals(p._Nombre));
+                if (archivo != null)
+                    zonaHasta._ListaDeArchivos.Remove(archivo);
+
+                zonaHasta._ListaDeArchivos.Add(p);
+                resultado += 1;
+            }
+            return resultado;
         }
     }
 }

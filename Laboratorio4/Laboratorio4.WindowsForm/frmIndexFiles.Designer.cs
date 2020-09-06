@@ -57,10 +57,12 @@
             // 
             // listView1
             // 
+            this.listView1.CheckBoxes = true;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Nombre,
             this.columnHeader2,
             this.columnHeader1});
+            this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(12, 12);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(760, 365);

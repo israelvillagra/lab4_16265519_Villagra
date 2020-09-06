@@ -48,18 +48,34 @@ namespace Laboratorio4.WindowsForm
         {
             if (listView1.Items.Count > 0)
             {
-                this.Visible = false;
-                frmCommit comit = new frmCommit();
-                comit.ShowDialog();
-                if (!String.IsNullOrWhiteSpace(comit.textBox1.Text))
+                if (listView1.CheckedItems.Count > 0)
                 {
-                    int resultado = Form1.repositorioController.AddAllFilesToLocalRepository(comit.textBox1.Text);
-                    if (resultado > 0)
-                        MessageBox.Show("Se acaba de realizar el commit");
-                    else
-                        MessageBox.Show("Ha Ocurrido un problema al ejecutar la operación");
+                    this.Visible = false;
+                    frmCommit comit = new frmCommit();
+                    comit.ShowDialog();
+                    if (!String.IsNullOrWhiteSpace(comit.textBox1.Text))
+                    {
+                        List<ArchivoDeTextoPlano> listadoArchivo = new List<ArchivoDeTextoPlano>();
 
-                    CargaListaArchivos(ZonasDeTrabajoEnumerador);
+                        foreach (ListViewItem itemList in listView1.CheckedItems)
+                        {
+                            var archivo = zonaDeTrabajo._ListaDeArchivos.FirstOrDefault(x => x._Nombre == itemList.Text);
+                            if (archivo != null)
+                                listadoArchivo.Add(archivo);
+                        }
+
+                        int resultado = Form1.repositorioController.AddAllFilesToLocalRepository(comit.textBox1.Text, listadoArchivo);
+                        if (resultado > 0)
+                            MessageBox.Show("Se acaba de realizar el commit");
+                        else
+                            MessageBox.Show("Ha Ocurrido un problema al ejecutar la operación");
+
+                        CargaListaArchivos(ZonasDeTrabajoEnumerador);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe tener al menos un archivo en Index");
                 }
             }
             else

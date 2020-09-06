@@ -93,7 +93,7 @@
             // 
             // btnPushFiles
             // 
-            this.btnPushFiles.Location = new System.Drawing.Point(664, 324);
+            this.btnPushFiles.Location = new System.Drawing.Point(751, 324);
             this.btnPushFiles.Name = "btnPushFiles";
             this.btnPushFiles.Size = new System.Drawing.Size(123, 40);
             this.btnPushFiles.TabIndex = 1;
