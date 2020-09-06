@@ -12,11 +12,11 @@ using static Laboratorio4.Entities.Utiles.EnumeradoresUtiles;
 
 namespace Laboratorio4.WindowsForm
 {
-    public partial class frmLocalRepository : Form
+    public partial class frmRemoteRepository : Form
     {
         ZonaDeTrabajo zonaDeTrabajo;
         ZonasDeTrabajoEnum ZonasDeTrabajoEnumerador;
-        public frmLocalRepository(ZonasDeTrabajoEnum p_ZonasDeTrabajoEnum)
+        public frmRemoteRepository(ZonasDeTrabajoEnum p_ZonasDeTrabajoEnum)
         {
             InitializeComponent();
             CargaListaArchivos(p_ZonasDeTrabajoEnum);
@@ -29,32 +29,30 @@ namespace Laboratorio4.WindowsForm
             zonaDeTrabajo = Form1.repositorioController.obtenerZonaDeTrabajo(p_ZonasDeTrabajoEnum);
             if (zonaDeTrabajo._ListaDeArchivos != null && zonaDeTrabajo._ListaDeArchivos.Count > 0)
             {
-                List<ArchivoDeTextoPlanoModel> listaArchivos = new List<ArchivoDeTextoPlanoModel>();
-                var listadoOrdenado = zonaDeTrabajo._ListaCommit.OrderBy(x => x._Fecha);
+                //List<ArchivoDeTextoPlanoModel> listaArchivos = new List<ArchivoDeTextoPlanoModel>();
+                //var listadoOrdenado = zonaDeTrabajo._ListaCommit.OrderBy(x => x._Fecha);
 
-                foreach (Commit temp in listadoOrdenado)
-                {
-                    foreach (ArchivoDeTextoPlano item in temp._ListaDeArchivos)
-                    {
-                        var archivo = listaArchivos.FirstOrDefault(x => x._Nombre.Equals(item._Nombre));
-                        if (archivo != null)
-                        {
-                            listaArchivos.Remove(archivo);
-                            archivo = new ArchivoDeTextoPlanoModel(item, temp);
-                            listaArchivos.Add(archivo);
-                        }
-                        else
-                            listaArchivos.Add(new ArchivoDeTextoPlanoModel(item, temp));
-                    }
-                }
+                //foreach (Commit temp in listadoOrdenado)
+                //{
+                //    foreach (ArchivoDeTextoPlano item in temp._ListaDeArchivos)
+                //    {
+                //        var archivo = listaArchivos.FirstOrDefault(x => x._Nombre.Equals(item._Nombre));
+                //        if (archivo != null)
+                //        {
+                //            listaArchivos.Remove(archivo);
+                //            archivo = new ArchivoDeTextoPlanoModel(item, temp);
+                //            listaArchivos.Add(archivo);
+                //        }
+                //        else
+                //            listaArchivos.Add(new ArchivoDeTextoPlanoModel(item, temp));
+                //    }
+                //}
 
-                foreach (ArchivoDeTextoPlanoModel item in listaArchivos)
+                foreach (ArchivoDeTextoPlano item in zonaDeTrabajo._ListaDeArchivos)
                 {
                     ListViewItem itemTXT = new ListViewItem(item._Nombre);
                     itemTXT.SubItems.Add(item._FechaModificacion.ToString());
                     itemTXT.SubItems.Add(item._Version.ToString());
-                    itemTXT.SubItems.Add(item.Identificador_Commit.ToString());
-                    itemTXT.SubItems.Add(item._FechaCommit.ToString());
                     listView1.Items.Add(itemTXT);
                 }
                 btnPushFiles.Visible = true;

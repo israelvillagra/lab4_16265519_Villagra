@@ -1,6 +1,6 @@
 ﻿namespace Laboratorio4.WindowsForm
 {
-    partial class frmLocalRepository
+    partial class frmRemoteRepository
     {
         /// <summary>
         /// Required designer variable.

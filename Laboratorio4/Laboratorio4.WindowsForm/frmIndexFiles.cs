@@ -38,6 +38,7 @@ namespace Laboratorio4.WindowsForm
                 {
                     ListViewItem itemTXT = new ListViewItem(item._Nombre);
                     itemTXT.SubItems.Add(item._FechaModificacion.ToString());
+                    itemTXT.SubItems.Add(item._Version.ToString());
                     listView1.Items.Add(itemTXT);
                 }
             }

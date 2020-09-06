@@ -27,6 +27,8 @@ namespace Laboratorio4.WindowsForm
             InitializeComponent();
             this.Text = "Archivo : " + p_Archivo._Nombre;
             _Nombre = p_Archivo._Nombre;
+            rtbContenido.Text = p_Archivo._Contenido;
+            ArchivoDeTextoPlano = p_Archivo;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -40,8 +42,12 @@ namespace Laboratorio4.WindowsForm
                 }
                 else
                 {
-                    ArchivoDeTextoPlano._Version = ArchivoDeTextoPlano._Version + 1;
-                    ArchivoDeTextoPlano._Contenido = rtbContenido.Text;
+                    if (!rtbContenido.Text.Equals(ArchivoDeTextoPlano._Contenido))
+                    {
+                        ArchivoDeTextoPlano._Contenido = rtbContenido.Text;
+                        ArchivoDeTextoPlano._Version += 1;
+                    }
+                    this.Close();
                 }
             }
             else

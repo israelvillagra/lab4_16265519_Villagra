@@ -35,6 +35,7 @@ namespace Laboratorio4.WindowsForm
                 {
                     ListViewItem itemTXT = new ListViewItem(item._Nombre);
                     itemTXT.SubItems.Add(item._FechaModificacion.ToString());
+                    itemTXT.SubItems.Add(item._Version.ToString());
                     listView1.Items.Add(itemTXT);
                 }
                 btnActualiza.Visible = true;
@@ -74,6 +75,21 @@ namespace Laboratorio4.WindowsForm
             {
                 MessageBox.Show("Debe seleccionar al menos un archivo");
             }
+        }
+
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var itemselect = this.listView1.FocusedItem.Text;
+            if (zonaDeTrabajo._ListaDeArchivos!=null && zonaDeTrabajo._ListaDeArchivos.Count>0)
+            {
+                ArchivoDeTextoPlano archivo = zonaDeTrabajo._ListaDeArchivos.FirstOrDefault(x => x._Nombre == itemselect);
+                frmFile fileNew = new frmFile(archivo);
+                this.Visible = false;
+                fileNew.ShowDialog();
+                this.Visible = true;
+                CargaListaArchivos(ZonasDeTrabajoEnumerador);
+            }
+            
         }
     }
 }

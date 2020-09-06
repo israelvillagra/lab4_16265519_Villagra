@@ -82,6 +82,12 @@
     <Compile Include="frmIndexFiles.Designer.cs">
       <DependentUpon>frmIndexFiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRemoteRepository.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRemoteRepository.Designer.cs">
+      <DependentUpon>frmRemoteRepository.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLocalRepository.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndexFiles.resx">
       <DependentUpon>frmIndexFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRemoteRepository.resx">
+      <DependentUpon>frmRemoteRepository.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLocalRepository.resx">
       <DependentUpon>frmLocalRepository.cs</DependentUpon>

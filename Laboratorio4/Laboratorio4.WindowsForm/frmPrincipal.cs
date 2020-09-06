@@ -69,5 +69,13 @@ namespace Laboratorio4.WindowsForm
             this.Visible = true;
             //CargaListaArchivos
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            new frmRemoteRepository(ZonasDeTrabajoEnum.RemoteRepository).ShowDialog();
+            this.Visible = true;
+            
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace Laboratorio4.Entities
     public class Commit
     {
         public String _Autor;
+        public int _Identificador;
         public Boolean _Copiado;
         public List<ArchivoDeTextoPlano> _ListaDeArchivos;
         public DateTime _Fecha;

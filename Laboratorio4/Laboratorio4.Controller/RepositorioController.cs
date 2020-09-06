@@ -55,7 +55,6 @@ namespace Laboratorio4.Controller
             }
         }
 
-
         public RepositorioController(String p_Nombre, String p_Autor)
         {
             gitInit(p_Nombre, p_Autor);
@@ -155,8 +154,12 @@ namespace Laboratorio4.Controller
                 zonaHasta._ListaCommit = new List<Commit>();
 
             //Se instancia objeto commit
+            int idComit = 1;
+            if (zonaHasta._ListaCommit.Count > 0)
+                idComit = zonaHasta._ListaCommit.Max(x => x._Identificador) + 1;
             Commit commit = new Commit();
             commit._Fecha = DateTime.Now;
+            commit._Identificador = idComit;
             commit._Mensaje = p_Mensaje;
             commit._Copiado = false;
             commit._ListaDeArchivos = new List<ArchivoDeTextoPlano>();
@@ -198,10 +201,19 @@ namespace Laboratorio4.Controller
                     {
                         foreach (ArchivoDeTextoPlano p1 in p._ListaDeArchivos)
                         {
-                            zonaHasta._ListaDeArchivos.Add(p1);
+                            var archivo = zonaHasta._ListaDeArchivos.FirstOrDefault(x => x._Nombre == p1._Nombre);
+                            if (archivo != null && !String.IsNullOrEmpty(archivo._Contenido))
+                            {
+                                zonaHasta._ListaDeArchivos.Remove(archivo);
+                                archivo = p1;
+                                zonaHasta._ListaDeArchivos.Add(p1);
+                            }
+                            else
+                                zonaHasta._ListaDeArchivos.Add(p1);
                             respuesta += 1;
                         }
                     }
+                    p._Copiado = true;
                 }
             }
             return respuesta;
