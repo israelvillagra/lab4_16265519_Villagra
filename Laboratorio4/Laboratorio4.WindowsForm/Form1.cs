@@ -1,33 +1,37 @@
 ﻿using Laboratorio4.Controller;
-using Laboratorio4.Entities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace Laboratorio4.WindowsForm
 {
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// Se crea el objeto estatico para ser manejdado desde los otros formularios
+        /// </summary>
         public static RepositorioController repositorioController;
+
+        /// <summary>
+        /// Inicialización del Objeto
+        /// </summary>
         public Form1()
         {
+            //Inicializa el Repositorio controller, quien contiene la lógica del GitHub
             repositorioController = new RepositorioController();
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Evento relacionado con el botón para la creación del repositorio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtNombreAutor.Text.Trim()) && !String.IsNullOrEmpty(txtNombreRepositorio.Text.Trim()))
             {
                 this.Visible = false;
+                ///Al iniciar este formulario se entrega la información del nuevo repositorio
                 new frmPrincipal(txtNombreRepositorio.Text.Trim(),txtNombreAutor.Text.Trim()).ShowDialog();
                 this.Close();
             }
@@ -37,13 +41,24 @@ namespace Laboratorio4.WindowsForm
             }
         }
 
+        /// <summary>
+        /// Función que maneja el evento de presionar el botón que contiene l lógica del cierre del formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Evento generado por el usuario que desea importar un repositorio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
+            //Filta los elementos que puede seleccionar, que seben ser xml
             OpenFileDialog openFileDialog1 = new OpenFileDialog()
             {
                 FileName = "*.xml",
@@ -55,6 +70,7 @@ namespace Laboratorio4.WindowsForm
             {
                 try
                 {
+                    ///Realiza el trabajo de enviar al controlador el nombre del archivo para ser deserializado
                     string mensaje = String.Empty;
                     var filePath = openFileDialog1.FileName;
                     bool respuesta = RepositorioController.ImportRepository(filePath, ref mensaje);
@@ -62,17 +78,17 @@ namespace Laboratorio4.WindowsForm
                     if (respuesta)
                     {
                         this.Visible = false;
+                        //Mantiene el formulario principal mientras se trabaje con el sistema
                         new frmPrincipal().ShowDialog();
                         this.Close();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +
-                    $"Details:\n\n{ex.StackTrace}");
+                    MessageBox.Show($"Error.\n: {ex.Message}\n\n" +
+                    $"Detalle:\n\n{ex.StackTrace}");
                 }
             }
-
         }
     }
 }

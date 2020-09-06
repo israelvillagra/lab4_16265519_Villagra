@@ -58,7 +58,7 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblIguales = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.listView4 = new System.Windows.Forms.ListView();
@@ -339,7 +339,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.lblIguales);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.listView4);
@@ -350,14 +350,14 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Remote Repository";
             // 
-            // label5
+            // lblIguales
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(151, 34);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(16, 17);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "0";
+            this.lblIguales.AutoSize = true;
+            this.lblIguales.Location = new System.Drawing.Point(151, 34);
+            this.lblIguales.Name = "lblIguales";
+            this.lblIguales.Size = new System.Drawing.Size(16, 17);
+            this.lblIguales.TabIndex = 7;
+            this.lblIguales.Text = "0";
             // 
             // label12
             // 
@@ -373,9 +373,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(6, 34);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(122, 17);
+            this.label13.Size = new System.Drawing.Size(111, 17);
             this.label13.TabIndex = 5;
-            this.label13.Text = "Cantidad Archivos";
+            this.label13.Text = "Archivos Iguales";
             // 
             // listView4
             // 
@@ -473,7 +473,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblIguales;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ListView listView4;
