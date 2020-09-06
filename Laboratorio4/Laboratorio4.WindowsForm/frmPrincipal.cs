@@ -22,6 +22,7 @@ namespace Laboratorio4.WindowsForm
         {
             InitializeComponent();
             Form1.repositorioController = new RepositorioController(p_Nombre, p_Autor);
+            this.Text = "Formulario Principal Repositorio : " + p_Nombre;
         }
 
         public frmPrincipal()
@@ -76,6 +77,13 @@ namespace Laboratorio4.WindowsForm
             new frmRemoteRepository(ZonasDeTrabajoEnum.RemoteRepository).ShowDialog();
             this.Visible = true;
             
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            new frmGitStatus(Form1.repositorioController.GetRepository()).ShowDialog();
+            this.Visible = true;
         }
     }
 }

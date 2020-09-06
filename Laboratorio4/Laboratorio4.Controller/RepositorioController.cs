@@ -1,5 +1,4 @@
-﻿using Laboratorio4.Controller.Utils;
-using Laboratorio4.Entities;
+﻿using Laboratorio4.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,11 +10,11 @@ using static Laboratorio4.Entities.Utiles.EnumeradoresUtiles;
 
 namespace Laboratorio4.Controller
 {
-
-
     public class RepositorioController
     {
         private static Repositorio RespitorioLaboratorio;
+
+        public RepositorioController() { }
 
         public String ExportRepository(string p_PathFile, ref bool resultado)
         {
@@ -56,12 +55,15 @@ namespace Laboratorio4.Controller
             }
         }
 
+        public Repositorio GetRepository()
+        {
+            return RespitorioLaboratorio;
+        }
+
         public RepositorioController(String p_Nombre, String p_Autor)
         {
             gitInit(p_Nombre, p_Autor);
         }
-
-        public RepositorioController() { }
 
         public int gitInit(String p_Nombre, String p_Autor)
         {

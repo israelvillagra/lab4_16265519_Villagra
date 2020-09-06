@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioController.cs" />
-    <Compile Include="Utils\UtilsController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Laboratorio4.Entities\Laboratorio4.Entities.csproj">

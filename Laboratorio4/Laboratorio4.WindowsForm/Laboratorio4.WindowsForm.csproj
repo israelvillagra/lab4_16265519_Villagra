@@ -76,6 +76,12 @@
     <Compile Include="frmFilesInZonaDeTrabajo.Designer.cs">
       <DependentUpon>frmFilesInZonaDeTrabajo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGitStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGitStatus.Designer.cs">
+      <DependentUpon>frmGitStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIndexFiles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFilesInZonaDeTRabajo.resx">
       <DependentUpon>frmFilesInZonaDeTrabajo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGitStatus.resx">
+      <DependentUpon>frmGitStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndexFiles.resx">
       <DependentUpon>frmIndexFiles.cs</DependentUpon>
