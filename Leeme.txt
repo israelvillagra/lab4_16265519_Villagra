@@ -1,0 +1,2 @@
+Realizado con .Net Framework 4.5.2
+Visual Studio Professional 2015.

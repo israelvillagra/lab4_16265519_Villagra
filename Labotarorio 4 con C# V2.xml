@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Repositorio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <_ListaZonasDeTrabajo>
+    <ZonaDeTrabajo>
+      <_ListaDeArchivos>
+        <ArchivoDeTextoPlano>
+          <_Nombre>Archivo3.txt</_Nombre>
+          <_Version>1</_Version>
+          <_FechaModificacion>2020-09-07T00:23:00.8973415-03:00</_FechaModificacion>
+          <_Contenido>Contenido Archivo 3</_Contenido>
+        </ArchivoDeTextoPlano>
+        <ArchivoDeTextoPlano>
+          <_Nombre>Archivo4.txt</_Nombre>
+          <_Version>1</_Version>
+          <_FechaModificacion>2020-09-07T00:23:13.2008051-03:00</_FechaModificacion>
+          <_Contenido>Contenido Archivo 4</_Contenido>
+        </ArchivoDeTextoPlano>
+        <ArchivoDeTextoPlano>
+          <_Nombre>Archivo5.txt</_Nombre>
+          <_Version>1</_Version>
+          <_FechaModificacion>2020-09-07T00:23:26.9932757-03:00</_FechaModificacion>
+          <_Contenido>Contenido Archivo 5</_Contenido>
+        </ArchivoDeTextoPlano>
+        <ArchivoDeTextoPlano>
+          <_Nombre>Archivo6,txt</_Nombre>
+          <_Version>1</_Version>
+          <_FechaModificacion>2020-09-07T00:23:46.3835996-03:00</_FechaModificacion>
+          <_Contenido>Contenido Archivo 6</_Contenido>
+        </ArchivoDeTextoPlano>
+        <ArchivoDeTextoPlano>
+          <_Nombre>Archivo1.txt</_Nombre>
+          <_Version>2</_Version>
+          <_FechaModificacion>2020-09-07T00:20:20.8172973-03:00</_FechaModificacion>
+          <_Contenido>Información del primer archivo (1).
+Segunda Versión</_Contenido>
+        </ArchivoDeTextoPlano>
+        <ArchivoDeTextoPlano>
+          <_Nombre>Archivo2.txt</_Nombre>
+          <_Version>1</_Version>
+          <_FechaModificacion>2020-09-07T00:22:44.4244167-03:00</_FechaModificacion>
+          <_Contenido>Contenido Archivo 2</_Contenido>
+        </ArchivoDeTextoPlano>
+      </_ListaDeArchivos>
+      <_ListaCommit />
+      <NombreZonaDeTrabajo>Workspace</NombreZonaDeTrabajo>
+    </ZonaDeTrabajo>
+    <ZonaDeTrabajo>
+      <_ListaDeArchivos>
+        <ArchivoDeTextoPlano>
+          <_Nombre>Archivo1.txt</_Nombre>
+          <_Version>1</_Version>
+          <_FechaModificacion>2020-09-07T00:20:20.8172973-03:00</_FechaModificacion>
+          <_Contenido>Información del primer archivo (1).</_Contenido>
+        </ArchivoDeTextoPlano>
+        <ArchivoDeTextoPlano>
+          <_Nombre>Archivo2.txt</_Nombre>
+          <_Version>1</_Version>
+          <_FechaModificacion>2020-09-07T00:22:44.4244167-03:00</_FechaModificacion>
+          <_Contenido>Contenido Archivo 2</_Contenido>
+        </ArchivoDeTextoPlano>
+      </_ListaDeArchivos>
+      <_ListaCommit />
+      <NombreZonaDeTrabajo>Index</NombreZonaDeTrabajo>
+    </ZonaDeTrabajo>
+    <ZonaDeTrabajo>
+      <_ListaDeArchivos>
+        <ArchivoDeTextoPlano>
+          <_Nombre>Archivo1.txt</_Nombre>
+          <_Version>1</_Version>
+          <_FechaModificacion>2020-09-07T00:20:20.8172973-03:00</_FechaModificacion>
+          <_Contenido>Información del primer archivo (1).</_Contenido>
+        </ArchivoDeTextoPlano>
+        <ArchivoDeTextoPlano>
+          <_Nombre>Archivo2.txt</_Nombre>
+          <_Version>1</_Version>
+          <_FechaModificacion>2020-09-07T00:22:44.4244167-03:00</_FechaModificacion>
+          <_Contenido>Contenido Archivo 2</_Contenido>
+        </ArchivoDeTextoPlano>
+      </_ListaDeArchivos>
+      <_ListaCommit>
+        <Commit>
+          <_Identificador>1</_Identificador>
+          <_Copiado>true</_Copiado>
+          <_ListaDeArchivos>
+            <ArchivoDeTextoPlano>
+              <_Nombre>Archivo1.txt</_Nombre>
+              <_Version>1</_Version>
+              <_FechaModificacion>2020-09-07T00:20:20.8172973-03:00</_FechaModificacion>
+              <_Contenido>Información del primer archivo (1).</_Contenido>
+            </ArchivoDeTextoPlano>
+            <ArchivoDeTextoPlano>
+              <_Nombre>Archivo2.txt</_Nombre>
+              <_Version>1</_Version>
+              <_FechaModificacion>2020-09-07T00:22:44.4244167-03:00</_FechaModificacion>
+              <_Contenido>Contenido Archivo 2</_Contenido>
+            </ArchivoDeTextoPlano>
+          </_ListaDeArchivos>
+          <_Fecha>2020-09-07T00:30:54.561992-03:00</_Fecha>
+          <_Mensaje>Se realizan los cambios correspondientes para realizar la operación.</_Mensaje>
+        </Commit>
+      </_ListaCommit>
+      <NombreZonaDeTrabajo>LocalRepository</NombreZonaDeTrabajo>
+    </ZonaDeTrabajo>
+    <ZonaDeTrabajo>
+      <_ListaDeArchivos>
+        <ArchivoDeTextoPlano>
+          <_Nombre>Archivo1.txt</_Nombre>
+          <_Version>1</_Version>
+          <_FechaModificacion>2020-09-07T00:20:20.8172973-03:00</_FechaModificacion>
+          <_Contenido>Información del primer archivo (1).</_Contenido>
+        </ArchivoDeTextoPlano>
+        <ArchivoDeTextoPlano>
+          <_Nombre>Archivo2.txt</_Nombre>
+          <_Version>1</_Version>
+          <_FechaModificacion>2020-09-07T00:22:44.4244167-03:00</_FechaModificacion>
+          <_Contenido>Contenido Archivo 2</_Contenido>
+        </ArchivoDeTextoPlano>
+      </_ListaDeArchivos>
+      <_ListaCommit />
+      <NombreZonaDeTrabajo>RemoteRepository</NombreZonaDeTrabajo>
+    </ZonaDeTrabajo>
+  </_ListaZonasDeTrabajo>
+  <_Nombre>Labotarorio 4 con C#</_Nombre>
+  <_Autor>Israel Villagra</_Autor>
+</Repositorio>
